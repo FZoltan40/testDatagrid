@@ -1,0 +1,104 @@
+﻿<Page x:Class="ComputerShop.LoginForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Login">
+
+    <Grid>
+        <!-- Fő elosztás-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Bal oldali tartalom-->
+        <Border>
+            <TextBlock x:Name="largeWindow" 
+                       Text="Üdv a rendszerben!"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold"/>
+        </Border>
+
+        <!-- Jobb oldali tartalom-->
+        <Grid Grid.Column="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--Fejléc-->
+            <TextBlock Grid.Row="0"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,12"
+                       Text="Jelntkezz be"
+                       />
+            <!--Űrlap-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Text="Felhasználónév:"
+                           Margin="0,0,8,0"
+                           />
+                <TextBox x:Name="userNameTextBox" 
+                         Grid.Row="0" 
+                         Grid.Column="1"
+                         MinWidth="100" Height="25"
+                         />
+
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Text="Jelszó:"
+                            Margin="0,0,8,0"
+                        />
+                <PasswordBox x:Name="userPasswordTextBox" Grid.Row="1" Grid.Column="1"
+                               MinWidth="100" Height="25"/>
+                
+                <StackPanel Grid.Row="2" Grid.Column="1">
+                    <TextBlock>
+                          <Hyperlink
+                              x:Name="registerLink"
+                              FontWeight="bold"
+                              Foreground="Blue"
+                              Click="registerLink_Click"
+                              >
+                           Regisztrálok     
+                          </Hyperlink>
+                    </TextBlock>
+                           
+         
+                    <Button x:Name="loginButton"
+                            HorizontalAlignment="Right"
+                            Margin="0,12,0,0"
+                            Content="Bejelentkezés"
+                            MinWidth="100"
+                            Height="30"
+                            FontWeight="Bold" Width="122"
+                            Click="loginButton_Click"
+                            />
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>
