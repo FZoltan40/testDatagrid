@@ -12,12 +12,13 @@
         <DataGrid x:Name="userDataGrid" Margin="10" 
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
+                  CellEditEnding="userDataGrid_CellEditEnding"
                  >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Név" Binding="{Binding UserName}"/>
                 <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
-                <DataGridTextColumn Header="Teljesnév" Binding="{Binding Fullname}"/>
+                <DataGridTextColumn Header="Teljesnév" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Dátum" Binding="{Binding RegDate}"/>
 

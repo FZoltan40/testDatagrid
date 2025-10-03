@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows;
 
 namespace ComputerShop
 {
@@ -69,6 +70,63 @@ namespace ComputerShop
 
             return dt.DefaultView;
 
+        }
+
+        public void DeleteUser(object id)
+        {
+            try
+            {
+                conn.Connection.Open();
+
+                string sql = "DELETE FROM users WHERE id = @id";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Connection.Close();
+
+                MessageBox.Show("Sikeres törlés.");
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void UpdateUser(object user)
+        {
+            try
+            {
+                conn.Connection.Open();
+
+                var result = user.GetType().GetProperties();
+
+                string sql = "UPDATE `users` SET `UserName`= @username,`Password`= @password,`FullName`= @fullname,`Email`= @email,`RegDate`= @date WHERE Id = @id ";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn.Connection);
+
+                cmd.Parameters.AddWithValue("@id", result[0].GetValue(user));
+                cmd.Parameters.AddWithValue("@username", result[1].GetValue(user));
+                cmd.Parameters.AddWithValue("@password", result[2].GetValue(user));
+                cmd.Parameters.AddWithValue("@fullname", result[3].GetValue(user));
+                cmd.Parameters.AddWithValue("@email", result[4].GetValue(user));
+                cmd.Parameters.AddWithValue("@date", result[5].GetValue(user));
+
+                cmd.ExecuteNonQuery();
+
+                conn.Connection.Close();
+
+                MessageBox.Show("Sikeres módosítás.");
+
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

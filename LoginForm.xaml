@@ -60,6 +60,7 @@
                            Margin="0,0,8,0"
                            />
                 <TextBox x:Name="userNameTextBox" 
+                         Text="zoli01"
                          Grid.Row="0" 
                          Grid.Column="1"
                          MinWidth="100" Height="25"
@@ -71,7 +72,9 @@
                             Margin="0,0,8,0"
                         />
                 <PasswordBox x:Name="userPasswordTextBox" Grid.Row="1" Grid.Column="1"
-                               MinWidth="100" Height="25"/>
+                               MinWidth="100" Height="25"
+                             Password="Alma"
+                             />
                 
                 <StackPanel Grid.Row="2" Grid.Column="1">
                     <TextBlock>
