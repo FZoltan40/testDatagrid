@@ -18,20 +18,33 @@ namespace ComputerShop
             userDataGrid.ItemsSource = _sqlStatements.GetAllUsers();
         }
 
-        private void userDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void userDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             if (userDataGrid.SelectedItem is DataRowView user)
             {
                 var usr = new
                 {
                     Id = user["Id"],
-                    Name = user["UserName"]
+                    Name = user["UserName"],
+                    Password = user["Password"],
+                    FullName = user["FullName"],
+                    Email = user["Email"],
+                    Date = user["RegDate"]
 
                 };
                 MessageBox.Show(usr.ToString());
             }
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Töröl");
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Módosít");
         }
     }
 

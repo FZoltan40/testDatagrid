@@ -9,7 +9,39 @@
       Title="AdminUser">
 
     <Grid>
-        <DataGrid x:Name="userDataGrid" Margin="10" AutoGenerateColumns="True"
-                  SelectionChanged="userDataGrid_SelectionChanged"/>
+        <DataGrid x:Name="userDataGrid" Margin="10" 
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                 >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Név" Binding="{Binding UserName}"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Teljesnév" Binding="{Binding Fullname}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Dátum" Binding="{Binding RegDate}"/>
+
+                <DataGridTemplateColumn Header="Töröl">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="T" 
+                            Click="Button_Click" 
+                            Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Módosít">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="M" 
+                            Click="Button_Click_1"
+                            Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
     </Grid>
 </Page>
